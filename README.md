@@ -44,4 +44,85 @@ Successfully rebased and updated refs/heads/main.
 Green Way@PAU MINGW64 ~/Git-exercises (main)
 $ git add test4.md
 
+##Keeping History Tidy - Squashing Commits:
+
+Squashing combines multiple commits into a single one. Let's merge "Create second file" into "Create initial file" for a cleaner history.
+Challenge: Use interactive rebasing with the squash command to achieve this. learn more about squash here
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git log
+commit 481aefee1ee391a24590a512e5cef3b9a564b3d9 (HEAD -> main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:23 2025 +0200
+
+    chore: Create another file
+
+    Create second file
+
+commit f1cfaf66854162da84154d4d014375042ca7e8ef
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git rebase -i HEAD~2
+fatal: invalid upstream 'HEAD~2'
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git rebase -i HEAD~2
+fatal: invalid upstream 'HEAD~2'
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git log
+commit 481aefee1ee391a24590a512e5cef3b9a564b3d9 (HEAD -> main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:23 2025 +0200
+
+    chore: Create another file
+
+    Create second file
+
+commit f1cfaf66854162da84154d4d014375042ca7e8ef
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git rebase -i --root
+[detached HEAD 3982183] chore: Create initial file
+ Date: Fri Feb 28 14:44:15 2025 +0200
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.md
+ create mode 100644 test2.md
+ create mode 100644 test3.md
+ create mode 100644 test4.md
+Successfully rebased and updated refs/heads/main.
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git log
+commit 3982183c5cad2b4a81ca6262167264efdc1fc68b (HEAD -> main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+
+    chore: Create another file
+
+    Create second file
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
+$ git log
+commit 3982183c5cad2b4a81ca6262167264efdc1fc68b (HEAD -> main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+
+    chore: Create another file
+
+    Create second file
+
+Green Way@PAU MINGW64 ~/Git-exercises (main)
 
