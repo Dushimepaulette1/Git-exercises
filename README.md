@@ -87,23 +87,35 @@ commit f1cfaf66854162da84154d4d014375042ca7e8ef
 Author: Dushimepaulette1 <p.dushime1@alustudent.com>
 Date:   Fri Feb 28 14:44:15 2025 +0200
 
-    chore: Create initial file
+OA    chore: Create initial file
 
 Green Way@PAU MINGW64 ~/Git-exercises (main)
-$ git rebase -i --root
-[detached HEAD 3982183] chore: Create initial file
- Date: Fri Feb 28 14:44:15 2025 +0200
- 4 files changed, 0 insertions(+), 0 deletions(-)
+OA$ git rebase -i --root
+OA[detached HEAD 3982183] chore: Create initial file
+OA Date: Fri Feb 28 14:44:15 2025 +0200
+OA 4 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test1.md
- create mode 100644 test2.md
+OA create mode 100644 test2.md
  create mode 100644 test3.md
  create mode 100644 test4.md
-Successfully rebased and updated refs/heads/main.
+OASuccessfully rebased and updated refs/heads/main.
+OA
+OAGreen Way@PAU MINGW64 ~/Git-exercises (main)
+$ git log
+OAcommit 3982183c5cad2b4a81ca6262167264efdc1fc68b (HEAD -> main)
+OAAuthor: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+OA
+OA    chore: Create initial file
+
+    chore: Create another file
+OA
+    Create second file
 
 Green Way@PAU MINGW64 ~/Git-exercises (main)
 $ git log
 commit 3982183c5cad2b4a81ca6262167264efdc1fc68b (HEAD -> main)
-Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+OAAuthor: Dushimepaulette1 <p.dushime1@alustudent.com>
 Date:   Fri Feb 28 14:44:15 2025 +0200
 
     chore: Create initial file
@@ -113,16 +125,5 @@ Date:   Fri Feb 28 14:44:15 2025 +0200
     Create second file
 
 Green Way@PAU MINGW64 ~/Git-exercises (main)
-$ git log
-commit 3982183c5cad2b4a81ca6262167264efdc1fc68b (HEAD -> main)
-Author: Dushimepaulette1 <p.dushime1@alustudent.com>
-Date:   Fri Feb 28 14:44:15 2025 +0200
 
-    chore: Create initial file
-
-    chore: Create another file
-
-    Create second file
-
-Green Way@PAU MINGW64 ~/Git-exercises (main)
 
