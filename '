@@ -1,0 +1,26 @@
+# This is a combination of 2 commits.
+# This is the 1st commit message:
+
+chore: Create another file
+
+# This is the commit message #2:
+
+Create second file
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Fri Feb 28 14:44:23 2025 +0200
+#
+# interactive rebase in progress; onto f1cfaf6
+# Last commands done (2 commands done):
+#    pick f8a8700 chore: Create another file
+#    squash 026feb4 Create second file
+# No commands remaining.
+# You are currently rebasing branch 'main' on 'f1cfaf6'.
+#
+# Changes to be committed:
+#	new file:   test2.md
+#	new file:   test3.md
+#	new file:   test4.md
+#
