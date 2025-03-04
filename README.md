@@ -422,3 +422,48 @@ Use `git rebase -i` to identify and remove the "Unwanted commit" from your histo
 3. Change `pick` to `drop` for the unwanted commit.
 4. Save and exit the rebase editor.
 
+Here’s how to structure the *Reordering Commits* challenge in the same format as the previous ones:
+
+---
+
+## 7. Reordering Commits
+
+### Problem
+Sometimes, you may need to reorder the commits in your history to maintain a logical flow. This can be done using `git rebase -i`.
+
+### Challenge
+Use interactive rebasing (`git rebase -i`) to rearrange the commits in your Git history.
+
+### Steps
+1. Run the following command to start the interactive rebase for the last few commits:
+   ```bash
+   git rebase -i HEAD~<number_of_commits>
+   ```
+   Replace `<number_of_commits>` with the number of commits you want to reorder (e.g., `HEAD~5` for the last 5 commits).
+   
+2. This opens an editor listing the commits you selected. Each commit is preceded by the word `pick`.
+
+3. To reorder commits, change the order of the commits by moving the lines around. For example:
+   ```bash
+   pick 1234567 Commit A
+   pick 2345678 Commit B
+   pick 3456789 Commit C
+   ```
+   If you want to swap Commit B and Commit C, simply move them in the list like this:
+   ```bash
+   pick 1234567 Commit A
+   pick 3456789 Commit C
+   pick 2345678 Commit B
+   ```
+
+4. Save and close the editor to proceed with the rebase. Git will attempt to apply the commits in the new order.
+
+5. If there are no conflicts, the rebase will complete successfully. If there are conflicts, Git will prompt you to resolve them. After resolving conflicts, use:
+   ```bash
+   git rebase --continue
+   ```
+
+6. After successfully completing the rebase, verify the commit order by checking the commit log:
+   ```bash
+   git log --oneline
+   ```
