@@ -211,6 +211,7 @@ Green Way@PAU MINGW64 ~/Git-exercises (main)
 
 Splitting a Commit in Git
 Sometimes, a commit message might describe too many changes at once, like "Create third and fourth files." It’s better to separate such commits for better tracking and clarity. In this guide, we’ll learn how to split a commit using git reset and create individual commits with distinct messages.
+<<<<<<< HEAD
 
 Example Scenario:
 You have a commit that says:
@@ -385,4 +386,119 @@ git status
 README.md[+] [dos] (11:27 04/03/2025)                                                                                                                                                                    246,1 Bot
 -- INSERT --
 
+=======
+>>>>>>> fb2c0ac (updates on the readme)
 
+Example Scenario:
+You have a commit that says:
+
+sql
+Copy
+Edit
+Create third and fourth files
+But you want to split this into two separate commits with different messages, such as:
+
+"Create third file"
+"Create fourth file"
+Steps to Split the Commit
+Check your commit history: Start by reviewing your recent commits with:
+
+bash
+Copy
+Edit
+git log
+Example output:
+
+sql
+Copy
+Edit
+commit 0aabe05e25b76176ccfb01221a3783553e444546 (HEAD -> main, origin/main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Mon Mar 3 15:58:48 2025 +0200
+
+    git advanced
+
+commit a0333d03db4181fcc88aafe6361e321c0da7d5f3
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Mon Mar 3 15:51:07 2025 +0200
+
+    git advanced
+
+commit 3982183c5cad2b4a81ca6262167264efdc1fc68b
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+    chore: Create another file
+    Create second file
+Reset the commit (soft reset): Use the git reset command to unstage the changes in the last commit while keeping them in the working directory.
+
+bash
+Copy
+Edit
+git reset --soft HEAD~1
+This command will move the HEAD to the previous commit and keep all changes staged.
+
+Stage the first file and commit: Add the changes for the third file and commit it with an appropriate message.
+
+bash
+Copy
+Edit
+git add test3.md
+git commit -m "Create third file"
+Stage the second file and commit: Add the changes for the fourth file and commit it with a new message.
+
+bash
+Copy
+Edit
+git add test4.md
+git commit -m "Create fourth file"
+Check the commit history: After splitting the commit, check your commit log again to confirm that you have two separate commits:
+
+bash
+Copy
+Edit
+git log
+Example output:
+
+sql
+Copy
+Edit
+commit db4e098e2a82f447571d00d83191271fd102089c (HEAD -> main)
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Mon Mar 3 16:03:14 2025 +0200
+
+    Create third file
+
+commit a0333d03db4181fcc88aafe6361e321c0da7d5f3
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Mon Mar 3 15:51:07 2025 +0200
+
+    git advanced
+
+commit 3982183c5cad2b4a81ca6262167264efdc1fc68b
+Author: Dushimepaulette1 <p.dushime1@alustudent.com>
+Date:   Fri Feb 28 14:44:15 2025 +0200
+
+    chore: Create initial file
+    chore: Create another file
+    Create second file
+Pull the latest changes and rebase: If your branch has diverged from the remote, you may need to rebase your changes before pushing.
+
+bash
+Copy
+Edit
+git pull origin main --rebase
+Commit the fourth file: After resolving any conflicts and ensuring your changes are up-to-date, commit the fourth file if necessary.
+
+bash
+Copy
+Edit
+git add test4.md
+git commit -m "Create fourth file"
+Final status: Verify the status to confirm there are no pending changes:
+
+bash
+Copy
+Edit
+git status
