@@ -176,8 +176,70 @@ Use interactive rebasing (`git rebase -i`) to rearrange the commits in your Git 
    ```bash
    git rebase --continue
    ```
-
 6. After successfully completing the rebase, verify the commit order by checking the commit log:
    ```bash
    git log --oneline
    ```
+Here’s how to structure the *Cherry-Picking Commits* challenge with steps to answer it:
+
+---
+
+## 8. Cherry-Picking Commits
+
+### Problem
+Git allows you to cherry-pick commits from other branches into your current branch. This can be useful when you want to apply a specific commit without merging an entire branch.
+
+### Challenge
+Create a new branch called `ft/branch`, add a new file `test5.md`, and commit the changes. Then, use `git cherry-pick` to bring a specific commit from `ft/branch` into your current branch (`main`).
+
+### Steps
+1. **Create a New Branch (`ft/branch`)**:
+   - Create and switch to a new branch called `ft/branch`:
+     ```bash
+     git checkout -b ft/branch
+     ```
+
+2. **Add a New File (`test5.md`)**:
+   - Create a new file named `test5.md` and add some content:
+     ```bash
+     echo "Content for test 5" > test5.md
+     ```
+
+3. **Commit the Changes**:
+   - Stage and commit the changes with an appropriate message:
+     ```bash
+     git add test5.md
+     git commit -m "Implemented test 5"
+     ```
+
+4. **Switch to the Main Branch**:
+   - Switch back to your main branch:
+     ```bash
+     git checkout main
+     ```
+
+5. **Find the Commit Hash**:
+   - Identify the commit you want to cherry-pick from `ft/branch`. Run:
+     ```bash
+     git log --oneline ft/branch
+     ```
+     - Find the commit hash for "Implemented test 5" (e.g., `1234567`).
+
+6. **Cherry-Pick the Commit**:
+   - Apply the specific commit to the `main` branch using `git cherry-pick`:
+     ```bash
+     git cherry-pick 1234567
+     ```
+
+7. **Resolve Any Conflicts** (if applicable):
+   - If there are conflicts, Git will stop and ask you to resolve them. After resolving conflicts, run:
+     ```bash
+     git add <resolved_files>
+     git cherry-pick --continue
+     ```
+
+8. **Verify the Commit**:
+   - Verify that the commit has been successfully applied to the `main` branch by checking the commit log:
+     ```bash
+     git log --oneline
+     ```
